@@ -4,9 +4,9 @@ import { useGSAP } from '@gsap/react';
 
 const SCROLL_PER_SLIDE_VH = 60;
 const VIDEOS = [
-  'https://videos.pexels.com/video-files/3029028/3029028-hd_1920_1080_30fps.mp4',
-  'https://videos.pexels.com/video-files/3129671/3129671-hd_1920_1080_30fps.mp4',
-  'https://videos.pexels.com/video-files/7047504/7047504-hd_1920_1080_30fps.mp4',
+  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260515_113235_88e0d62e-8103-40c1-948e-f0a4f886ffd1.mp4',
+  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260515_114315_ee3663e6-bd79-41b4-9e5b-0fae62827eb9.mp4',
+  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260515_114559_dca18b14-90f5-47c4-8a84-3cbae9bd8a0c.mp4',
 ];
 
 const SLIDES_TEXT = [
@@ -27,10 +27,17 @@ const SLIDES_TEXT = [
   }
 ];
 
+const FALLBACK_IMAGES = [
+  'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200',
+  'https://images.unsplash.com/photo-1559329007-40df8a9345d8?q=80&w=1200',
+  'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200',
+];
+
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [windowHeight, setWindowHeight] = useState(0);
   const [displayedProgress, setDisplayedProgress] = useState(0);
+  const [videoErrors, setVideoErrors] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     const updateSize = () => setWindowHeight(window.innerHeight);
@@ -121,14 +128,24 @@ export function HeroSection() {
                 zIndex: index,
               }}
             >
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-                src={src}
-              />
+              {videoErrors.has(index) ? (
+                <img
+                  src={FALLBACK_IMAGES[index]}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  src={src}
+                  poster={FALLBACK_IMAGES[index]}
+                  onError={() => setVideoErrors(prev => new Set(prev).add(index))}
+                />
+              )}
               
               <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/75 pointer-events-none" />
 
