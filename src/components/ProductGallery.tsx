@@ -56,15 +56,11 @@ export function ProductGallery() {
 
   useGSAP(() => {
     const items = gsap.utils.toArray('.gallery-item');
-    
-    gsap.set(items, { opacity: 0, y: 80, filter: 'blur(5px)' });
-    gsap.to(items, {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      duration: 0.8,
+    gsap.from(items, {
+      y: 40,
+      duration: 0.7,
       ease: 'power3.out',
-      stagger: 0.1,
+      stagger: 0.08,
       scrollTrigger: {
         trigger: containerRef.current,
         start: 'top 80%',

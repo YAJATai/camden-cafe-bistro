@@ -34,11 +34,8 @@ export function AboutUs() {
       }
     );
 
-    gsap.set(words, { opacity: 0, filter: 'blur(4px)', y: 20 });
-    gsap.to(words, {
-      opacity: 1,
-      filter: 'blur(0px)',
-      y: 0,
+    gsap.from(words, {
+      y: 20,
       stagger: 0.02,
       duration: 0.5,
       ease: 'power2.out',

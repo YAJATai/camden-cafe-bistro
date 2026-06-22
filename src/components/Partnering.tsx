@@ -42,11 +42,9 @@ export function Partnering() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    gsap.set('.partner-title-char', { opacity: 0, y: 30 });
-    gsap.to('.partner-title-char', {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
+    gsap.from('.partner-title-char', {
+      y: 20,
+      duration: 0.5,
       stagger: 0.03,
       ease: 'power3.out',
       scrollTrigger: {
@@ -55,11 +53,9 @@ export function Partnering() {
       }
     });
 
-    gsap.set('.partner-card', { opacity: 0, y: 50 });
-    gsap.to('.partner-card', {
-      opacity: 1,
-      y: 0,
-      duration: 0.7,
+    gsap.from('.partner-card', {
+      y: 40,
+      duration: 0.6,
       stagger: 0.15,
       ease: 'power3.out',
       scrollTrigger: {
