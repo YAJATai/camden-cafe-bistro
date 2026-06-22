@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Script&family=Manrope:wght@500&family=Open+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-body: 'Open Sans', sans-serif;
+  --font-accent: 'Instrument Serif', serif;
+  --font-manrope: 'Manrope', sans-serif;
+  --font-luxurious: 'Luxurious Script', cursive;
+  
+  --color-primary: #ffffff;
+  --color-primary-foreground: #171717;
+  --color-gold: #F97316;
+}
+
+:root {
+  --background: 0 0% 9%;
+  --foreground: 0 0% 100%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 9%;
+  --secondary: 0 0% 97%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 75%;
+  --accent: 0 0% 15%;
+  --border: 0 0% 20%;
+  --radius: 2px;
+  --hero-cta-bg: 0 0% 97.3%;
+  --hero-cta-text: 0 0% 9%;
+}
+
+html {
+  scroll-padding-top: 80px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  overflow-x: hidden;
+}
+
+/* Custom premium dark scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+}
+
+.split-char {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1 !important;
+  display: inline-block;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 60s linear infinite;
+}
+
+.pause-on-hover:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLine {
+  0% { transform: translateY(-100%); }
+  75% { transform: translateY(340%); }
+  100% { transform: translateY(340%); }
+}
+
+.animate-scroll-line {
+  animation: scrollLine 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+

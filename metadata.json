@@ -1,0 +1,6 @@
+{
+  "name": "Rihla - Bake House",
+  "description": "Premium high-fidelity culinary website for Rihla - Bake House in Pune, featuring hand-crafted Italian gelatos, woodfired pizzas, and decadent Basque cheesecakes with smooth scroll animations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
